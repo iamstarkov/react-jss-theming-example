@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { ThemeProvider } from 'react-jss';
 
-import Theme from './Theme';
 import Button from './Button';
 import Background from './Background';
 
-class App extends Component {
-  render() {
-    return (
-      <Theme>
-        <Background>
-          <div>
-            <Button>Hello</Button>
-          </div>
-        </Background>
-      </Theme>
-    );
-  }
-}
+const theme = {
+  button: {},
+  background: {},
+  color: 'tomato',
+  bgColor: '#fafafa',
+};
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Background>
+      <div>
+        <Button>Hello</Button>
+      </div>
+    </Background>
+  </ThemeProvider>
+);
 
 export default App;

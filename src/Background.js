@@ -1,26 +1,22 @@
 import injectSheet from 'react-jss';
 import React from 'react';
 
-function Background({
+const Background = ({
   children,
   classes,
   className,
-}) {
-  return (
-    <div className={`${classes.root} ${className}`}>
-      {children}
-    </div>
-  );
-}
+}) => (
+  <div className={`${classes.bg} ${className}`}>
+    {children}
+  </div>
+);
 
-const styles = ({ background: theme }) => {
-  return {
-    root: {
-      composes: 'background',
-      color: theme.color,
-      backgroundColor: theme.backgroundColor,
-    },
-  };
-};
+const styles = theme => ({
+  bg: {
+    extend: theme.background,
+    color: theme.color,
+    backgroundColor: theme.bgColor,
+  },
+});
 
 export default injectSheet(styles)(Background);
