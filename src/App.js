@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'react-jss';
+import { ThemeProvider, JssProvider } from 'react-jss';
 
 import Button from './Button';
 import Background from './Background';
@@ -13,11 +13,13 @@ const theme = {
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Background>
-      <div>
-        <Button>Hello</Button>
-      </div>
-    </Background>
+    <JssProvider>      
+      <Background>
+        <div>
+          <Button>Hello</Button>
+        </div>
+      </Background>
+    </JssProvider>
   </ThemeProvider>
 );
 
